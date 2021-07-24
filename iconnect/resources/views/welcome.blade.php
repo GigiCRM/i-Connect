@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,6 +13,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -117,8 +121,36 @@
                 </a>
             </div>
         </div>
-
         
+        <!--Notice Board -->
+        <div class="col-5" >
+            <div class="notice" > 
+                <h3>Notice board</h5>
+                <p>For student who need to start your intern in semester B 2021,Please enroll the industrial training before 24 May 2021.</p>
+            </div>   
+        </div>
+
+        <!--Small Col -->
+        <div class="row">
+            <div class="container">
+                <div class="col-md-3">
+                    <img src="img/partner.jpg" alt="Partner" width="200px" height="250px">
+                    <div class="content"><a href="">Company</a></div>
+                </div>
+                <div class="col-md-3">
+                    <img src="img/full-time.jpg" alt="Full-time" width="200px" height="250px">
+                    <div class="content"><a href=""> Full-time</a></div>
+                </div>
+                <div class="col-md-3">
+                    <img src="img/part-time.jpg" alt="Part-time" width="200px" height="250px">
+                    <div class="content"><a href="">Part-time</a> </div>
+                </div>
+                <div class="col-md-3">
+                    <img src="img/suc.jpg" alt="SUC" width="200px" height="250px">
+                    <div class="content"><a href=""> Southern Website</a></div>
+                </div>
+            </div>
+        </div>
            
 
                 

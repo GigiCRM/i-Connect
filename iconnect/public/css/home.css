@@ -24,7 +24,6 @@
 }
 
 .navbar {
-    overflow: hidden;
     background-color: #333;
 }
 
@@ -39,7 +38,6 @@
 
 .dropdown {
     float: left;
-    overflow: hidden;
 }
 
 .dropdown .dropbtn {
@@ -86,5 +84,52 @@
 }
 
 .container {
+    margin-bottom: 20px;
+}
+
+.notice {
+    margin: auto;
+    width: 50%;
+    border: 8px dotted red;
+}
+
+.notice p {
+    padding: 15px;
+    font-size: 1vw;
+}
+
+.notice h3 {
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+.container {
     position: relative;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+}
+
+.row .container img {
+    width: 100%;
+    height: auto;
+    opacity: 0.3;
+    margin-top: 20px;
+}
+
+.row .container img:hover {
+    opacity: 1;
+}
+
+.row .content a {
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: bold;
+    font-family: 'STIX Two Math', serif;
 }
