@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Profile_student; 
-
+use App\Models\User; 
 Use Session;
 
 class StudentController extends Controller
@@ -58,11 +58,24 @@ class StudentController extends Controller
         return redirect()->route('student.home');
     }
 
-    public function show($id){
+    public function show(){
        
-        $students =Profile_student::all()->where('id',$id);
-        
-        return view('student/studentProfile')->with('students',$students);
+        $students=DB::table('profile_students')
+        ->join('users','profile_students.Email','=','users.email')
+        ->select('profile_students.*')
+        ->get();
+
+        return view('student/studentHome')->with('students',$students);
                                
+    }
+
+    public function studentProfile(){
+    
+        $students=DB::table('profile_students')
+        ->join('users','profile_students.Email','=','users.email')
+        ->select('profile_students.*')
+        ->get();
+
+        return view('student/studentHome')->with('students',$students);
     }
 }

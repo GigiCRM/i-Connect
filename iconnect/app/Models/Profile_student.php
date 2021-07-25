@@ -26,4 +26,8 @@ class Profile_student extends Model
         'Image'
     ];
 
+    public function user_student(){
+        return $this->hasOne('App\User_student');
+    }
+
 }

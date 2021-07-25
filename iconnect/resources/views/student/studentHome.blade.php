@@ -30,28 +30,28 @@
 
 <div class="page-content">
     <div class="w3-container w3-light-grey" style="height: 100%;">
+    @foreach($students as $students)
 
-    
         <button>Edit  <span class="glyphicon glyphicon-cog"></button>
         <h3>Personal Info</h3> 
-        <div><img src="" alt=""></div>
-        <div>Name:</div>
-        <div>Gender:</div>
-        <div>Student ID:</div>
-        <div>Program:</div>
-        <div>Batch No:</div>
-        <div>Email:</div>
-        <div>Contact:</div>
+        <div><img src="{{ asset('img/') }}/{{$students->Image}}"  alt=""></div>
+        <div>Name: {{$students->Name}}</div>
+        <div>Gender: {{$students->Gender}}</div>
+        <div>Student ID: {{$students->StudentID}}</div>
+        <div>Program: {{$students->Program}}</div>
+        <div>Batch No: {{$students->Batch_No}}</div>
+        <div>Email: {{$students->Email}}</div>
+        <div>Contact: {{$students->Contact}}</div>
 
         <h3>Educational Background</h3>
-        <div>University:</div>
-        <div>Field of Study:</div>
-        <div>Program:</div>
-        <div>GPA: </div>
-        <div>Year Graduate: </div>
-        <div>Relevant Project: </div>
-        <div>Result: </div>
-
+        <div>University: {{$students->University}}</div>
+        <div>Field of Study: {{$students->FieldOfStudy}}</div>
+        <div>Program: {{$students->Program}}</div>
+        <div>GPA: {{$students->GPA}}</div>
+        <div>Year Graduate: {{$students->YearGraduate}} </div>
+        <div>Relevant Project:<img src="{{ asset('img/') }}/{{$students->RelevantProject}}"  alt=""></div>
+        <div>Result:<img src="{{ asset('img/') }}/{{$students->Result}}"  alt=""></div>
+    @endforeach
     </div>
 </div>
 @endsection
