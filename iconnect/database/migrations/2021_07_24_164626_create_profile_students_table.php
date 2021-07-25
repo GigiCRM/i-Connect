@@ -25,9 +25,9 @@ class CreateProfileStudentsTable extends Migration
             $table->string('FieldOfStudy');
             $table->string('Program');
             $table->double('GPA',2,1);
-            $table->integer('YearGraduate');
-            $table->string('RelevantProject');
-            $table->string('Result');
+            $table->integer('YearGraduate')->nullable();
+            $table->string('RelevantProject')->nullable();
+            $table->string('Result')->nullable();
             $table->string('Image');
             $table->timestamps();
         });

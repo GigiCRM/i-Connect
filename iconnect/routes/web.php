@@ -35,4 +35,6 @@ Route::get('student/insertProfile', [App\Http\Controllers\StudentController::cla
 
 Route::post('student/inserProfile/store', [App\Http\Controllers\StudentController::class, 'store'])->name('addStudentProfile');
 
-Route::get('/showStudentProfile', [App\Http\Controllers\StudentController::class, 'show'])->name('showStudentProfile');
+Route::get('/showStudentProfile/{id}', [App\Http\Controllers\StudentController::class, 'show'])->name('showStudentProfile');
+
+Route::get('/editStudentProfile/{id}', [App\Http\Controllers\StudentController::class, 'edit'])->name('editStudentProfile');

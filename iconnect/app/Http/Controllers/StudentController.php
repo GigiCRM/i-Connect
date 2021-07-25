@@ -19,7 +19,7 @@ class StudentController extends Controller
     }
     public function insertProfile()
     {
-        return view('studentProfileForm');
+        return view('student/studentProfileForm');
     }
 
     public function store(){    //step 2 
@@ -36,7 +36,7 @@ class StudentController extends Controller
         $profileImage->move('img',$profileImage->getClientOriginalName());   //images is the location                
         $PImage=$profileImage->getClientOriginalName();
 
-        $addCategory=Profile_student::create([    //step 3 bind data
+        $addStudentProfile=Profile_student::create([    //step 3 bind data
             'Name'=>$r->name, //add on 
             'Gender'=>$r->gender, //fullname from HTML
             'StudentID'=>$r->studentId,
@@ -58,10 +58,11 @@ class StudentController extends Controller
         return redirect()->route('student.home');
     }
 
-    public function show(){
-        $studentProfile=Profile_student::paginate(12);
+    public function show($id){
+       
+        $students =Profile_student::all()->where('id',$id);
         
-        return view('studentHome')->with('student',$studentProfile);
+        return view('student/studentProfile')->with('students',$students);
+                               
     }
-
 }
