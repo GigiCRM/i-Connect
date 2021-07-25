@@ -78,4 +78,32 @@ class StudentController extends Controller
 
         return view('student/studentHome')->with('students',$students);
     }
+
+    public function edit($id){
+       
+        $students =Profile_student::all()->where('id',$id);
+        //select * from products where id='$id'
+        
+        return view('student/editStudentProfile')->with('students',$students);
+                       
+    }
+
+    public function update(){
+        $r=request();//retrive submited form data
+        $students =Profile_student::find($r->id); 
+        $students->name=$r->name;
+        $students->gender=$r->gender;
+        $students->studentId=$r->studentId;
+        $students->batchNo=$r->batchNo;
+        $students->email=$r->email;
+        $students->contact=$r->contact;
+        $students->university=$r->university;
+        $students->fOStudy=$r->fOStudy;
+        $students->program=$r->program;
+        $students->gpa=$r->gpa;
+        $students->yearGraduate=$r->yearGraduate;
+      
+        $students->save(); //run the SQL update statment
+        return redirect()->route('student.home');
+    }
 }
