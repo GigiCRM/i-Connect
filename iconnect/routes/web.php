@@ -43,3 +43,12 @@ Route::get('/editStudentProfile/{id}', [App\Http\Controllers\StudentController::
 
 Route::post('/updateStudentProfile', [App\Http\Controllers\StudentController::class, 'update'])->name('updateStudentProfile');
 
+Route::get('/showStudentResume', [App\Http\Controllers\StudentController::class, 'showResume'])->name('showStudentResume');
+
+
+//admin
+Route::get('admin/insertJob', [App\Http\Controllers\AdminController::class, 'insertJob'])->name('insertJob');
+
+Route::post('admin/insertJob/store', [App\Http\Controllers\AdminController::class, 'store'])->name('addJob');
+
+Route::get('/showJob', [App\Http\Controllers\AdminController::class, 'showJob'])->name('showJob');

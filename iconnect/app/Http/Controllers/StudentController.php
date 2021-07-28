@@ -101,4 +101,15 @@ class StudentController extends Controller
     $students->save();
     return redirect()->route('showStudentProfile');
    }
+
+   public function showResume(){
+       
+    $students=DB::table('profile_students')
+    ->join('users','profile_students.Email','=','users.email')
+    ->select('profile_students.*')
+    ->get();
+
+    return view('student/studentResume')->with('students',$students);
+                           
+}
 }

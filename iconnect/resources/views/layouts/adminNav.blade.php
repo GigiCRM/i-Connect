@@ -31,7 +31,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/student/home') }}">
+                <a class="navbar-brand" href="{{ route('admin.home') }}">
                     i-Connect
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -84,15 +84,52 @@
         </nav>
     </div>
 
-     <!-- Navbar -->
-     <div class="navbar">
-                <a href="{{ route('student.home') }}">Home</a>
-                <a href="{{ route('showStudentProfile') }}">Student</a>
-                <a href="#news">Job Gallery</a> 
-                <a href="#home">Internship</a>
-                <a href="#news">Company List</a> 
+     
+        <!-- Navbar -->
+        <div class="navbar">
+                <a href="{{ route('admin.home') }}">Home</a>
+            <div class="dropdown">
+                    <button class="dropbtn">Student 
+                    <i class="fa fa-caret-down"></i>
+                    </button>
+                <div class="dropdown-content">
+                    <a href="#">Personal Details</a>
+                    <a href="#">Resume</a>
+                    <a href="#">Intern Status</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                    <button class="dropbtn">Alumni 
+                    <i class="fa fa-caret-down"></i>
+                    </button>
+                <div class="dropdown-content">
+                    <a href="#">Personal Details</a>
+                    <a href="#">Intern Record</a>
+                    <a href="#">Resume</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                    <button class="dropbtn">Internship 
+                    <i class="fa fa-caret-down"></i>
+                    </button>
+                <div class="dropdown-content">
+                    <a href="#">User Guide</a>
+                    <a href="#">Enrollment</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                    <button class="dropbtn">Job Gallery 
+                    <i class="fa fa-caret-down"></i>
+                    </button>
+                <div class="dropdown-content">
+                    <a href="{{ route('insertJob') }}">Insert Job</a>
+                    <a href="{{ route('showJob') }}">Job Listing</a>
+                </div>
+            </div>
+                <a href="#news">Company</a> 
                 <a href="#news">Contact Us</a> 
-    </div>
+        </div>
+        
 
         <main class="py-4" style="display:inline;">
             @yield('content')

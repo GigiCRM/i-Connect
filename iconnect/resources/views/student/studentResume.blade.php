@@ -34,10 +34,10 @@
 <div class="page-content">
     <div class="w3-container w3-light-grey" id="info-background">
    
-    <a href="{{route('editStudentProfile', ['id' => $students->id])}}" class="btn btn-info" id="button"><i class="fas fa-edit">EDIT</i></a> 
+   
 <div id="center">
     <div class="info">
-        <h3 >Personal Info</h3> 
+        <h3 style="background-color:skyblue;" >Personal Info</h3> 
         <div><img src="{{ asset('img/') }}/{{$students->Image}}"  alt=""></div>
         <div><em> Name:</em> {{$students->Name}}</div>
         <div><em> Gender:</em> {{$students->Gender}}</div>
@@ -47,7 +47,7 @@
         <div><em> Email:</em> {{$students->Email}}</div>
         <div><em>Contact:</em>  {{$students->Contact}}</div>
 
-        <h3 style="margin: top 25px;">Educational Background</h3>
+        <h3 style="margin: top 25px;background-color:skyblue;">Educational Background</h3>
         <div><em> University:</em> {{$students->University}}</div>
         <div><em> Field of Study:</em> {{$students->FieldOfStudy}}</div>
         <div><em> Program:</em> {{$students->Program}}</div>
