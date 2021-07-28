@@ -1,80 +1,61 @@
-<div>
-    <form class="subform" method="post" action="{{ route('updateStudentProfile') }}" enctype="multipart/form-data">
-        @csrf
+@extends('layouts.studentnav')
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/studentFormEdit.css') }}">
+@section('content')
 
-        <h3>Personal Info</h3> 
+<div id="body">
+                <div id="content" style="text-align:center"> 
+                    <form class="subform"  method="post" action="{{ route('updateStudentProfile') }}" enctype="multipart/form-data">
+                    @csrf <!-- very imdivortant if you didn't insert CSRF, it not allow submit the data-->
 
-        @foreach ($students as $students)
-   
-            <div class="form-group input-group-lg">
-            <label for="name" class="text-info">Name:</label><br>
-            <input type="text" name="name" id="name" class="form-control" value="{{$students->name}}">
+                    <div id="content-item">
+                        <div style="font-weight:bold; font-size:25px; font-family: 'Libre Baskerville', serif;">Edit profile</div>
+                    </div>
+                    @foreach($students as $students)
+
+                    <div id="content-item">
+                        <label for="id" class="">User id: </label><br>
+                        <input type="text" name="id" id="id" value="{{$students->id}}" readonly>
+                    </div>
+                    <div id="content-item">
+                        <label for="name" class="">Name: </label><br>
+                        <input type="text" name="name" id="name" value="{{$students->Name}}">
+                    </div>
+                   
+                    <div id="content-item">
+                        <label for="studentId" class="">Student ID: </label><br>
+                        <input type="text" name="studentId" id="studentId" value="{{$students->StudentID}}">
+                    </div>
+                   
+                    <div id="content-item">
+                        <label for="email" class="">Email: </label><br>
+                        <input type="text" name="email" id="email"value="{{$students->Email}}" readonly>
+                    </div>
+                    <div id="content-item"> 
+                        <label for="contact" class="">Contact: </label><br>
+                        <input type="text" name="contact" id="contact"value="{{$students->Contact}}" >
+                    </div>
+                    <div id="content-item">
+                        <label for="university" class="">University: </label><br>
+                        <input type="text" name="university" id="university"value="{{$students->University}}" >
+                    </div>
+                   
+                    <div id="content-item">
+                        <label for="gpa" class="">GPA: </label><br>
+                        <input type="text" name="gpa" id="gpa"value="{{$students->GPA}}" >
+                    </div>
+                    <div id="content-item">
+                        <label for="yearGraduate" class="">Year Graduate: </label><br>
+                        <input type="text" name="yearGraduate" id="yearGraduate"value="{{$students->YearGraduate}}" >
+                    </div>
+
+                    @endforeach
+                    <p>
+                        <input id="button" type="submit" name="insert" value="Insert">
+                    </p>
+                    </form>
+                </div>
             </div>
-
-            <div class="form-group input-group-lg">
-            <label for="gender" class="text-info">Gender:</label><br>
-            <input type="radio" id="gender" name="gender" value="female">
-                <label for="html">Female</label><br>
-            <input type="radio" id="gender" name="gender" value="male">
-                <label for="css">Male</label><br>
-            </div>
-
-            <div class="form-group input-group-lg">
-            <label for="studentId" class="text-info">Student ID:</label><br>
-            <input type="text" name="studentId" id="studentId" class="form-control"value="{{$students->StudentID}}">
-            </div>
-
-            <div class="form-group input-group-lg">
-            <label for="batchNo" class="text-info">Batch No:</label><br>
-            <input type="text" name="batchNo" id="batchNo" class="form-control" value="{{$students->Batch_No}}">
-            </div>
-
-            <div class="form-group input-group-lg">
-            <label for="email" class="text-info">Email:</label><br>
-            <input type="text" name="email" id="email" class="form-control" value="{{$students->Email}}" readonly>
-            </div>
-
-            <div class="form-group input-group-lg">
-            <label for="contact" class="text-info">Contact:</label><br>
-            <input type="number" name="contact" id="contact" class="form-control" value="{{$students->Contact}}">
-            </div>
-
-
-            <p>Educational Background</p>
-
-            <div class="form-group input-group-lg">
-                <label for="university" class="text-info">University: </label><br>
-                <input type="text" class="form-control" id="university" name="university"value="{{$students->University}}">
-            </div>
-
-            <div class="form-group input-group-lg">
-                <label for="fOStudy" class="text-info">Field of Study: </label><br>
-                <input type="text" class="form-control" id="fOStudy" name="fOStudy" value="{{$students->FieldOfStudy}}">
-            </div>
-
-            <div class="form-group input-group-lg">
-                <label for="program" class="text-info">Program: </label><br>
-                <input type="radio" id="program" name="program" value="diploma">
-                                <label for="diploma">Diploma</label><br>
-                            <input type="radio" id="program" name="program" value="degree">
-                                <label for="degree">Degree</label><br>
-            </div>
-
-            <div class="form-group input-group-lg">
-                <label for="gpa" class="text-info">GPA: </label><br>
-                <input type="text" class="form-control" id="gpa" name="gpa"value="{{$students->GPA}}">
-            </div>
-
-            <div class="form-group input-group-lg">
-                <label for="yearGraduate" class="text-info">Year Graduate: </label><br>
-                <input type="number" class="form-control" id="yearGraduate" name="yearGraduate" value="{{$students->YearGraduate}}">
-            </div>
-
-
-            <div class="text-center">
-                <input type="submit" name="insert"  class="" value="Insert" style="height: 50px; width: 30%;" >
-            </div>
-
-    </form>
-</div>
-@endforeach
+@endsection

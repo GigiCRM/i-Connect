@@ -14,7 +14,7 @@
     <div class="w3-sidebar w3-dark-grey w3-bar-block" style="width:25%">
     <img src="{{ asset('img/') }}/{{$students->Image}}"  alt="">
     <div class="side-content">
-        <a href="#" class="w3-bar-item w3-button w3-padding-16">Profile</a>
+        <a href="{{ route('showStudentProfile') }}" class="w3-bar-item w3-button w3-padding-16">Profile</a>
         <a href="#" class="w3-bar-item w3-button w3-padding-16">Resume</a>
         <a href="#" class="w3-bar-item w3-button w3-padding-16">Intern Status</a>
         <a href="#" class="w3-bar-item w3-button w3-padding-16">Weekly Task</a>

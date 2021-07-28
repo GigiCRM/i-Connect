@@ -86,7 +86,7 @@
 
      <!-- Navbar -->
      <div class="navbar">
-                <a href="#home">Home</a>
+                <a href="{{ route('student.home') }}">Home</a>
                 <a href="#home">Student</a>
                 <a href="#news">Job Gallery</a> 
                 <a href="#home">Internship</a>

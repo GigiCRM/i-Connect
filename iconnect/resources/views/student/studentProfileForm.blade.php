@@ -8,10 +8,12 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center align-items-center">
-        <div id="form" class="col-md-6">
+        <div id="form" class="col-md-10">
         <form class="subform"  method="post" action="{{ route('addStudentProfile') }}" enctype="multipart/form-data">
             @csrf   
-                <p>Student Info</p>
+            
+            <div id="content">
+                <p style="text-align:center;">Student Info</p>
 
                 <div class="form-group input-group-lg">
                 <label for="name" class="text-info">Name:</label><br>
@@ -51,7 +53,7 @@
                     <input type="file" class="form-control" name="profile-image" >
                 </div>
 
-                <p>Educational Background</p>
+                <p style="text-align:center;"> Educational Background</p>
 
                 <div class="form-group input-group-lg">
                     <label for="university" class="text-info">University: </label><br>
@@ -92,10 +94,11 @@
                 </div>
 
                 <div class="text-center">
-                    <input type="submit" name="insert"  class="" value="Comfirm" style="height: 50px; width: 30%;" >
+                    <input type="submit" name="insert"  id="button" class="" value="Comfirm" style="height: 50px; width: 30%;" >
                 </div>
 
             </form>
+            </div>
         </div>
     </div>
 </div>

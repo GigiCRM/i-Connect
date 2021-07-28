@@ -88,22 +88,17 @@ class StudentController extends Controller
                        
     }
 
-    public function update(){
-        $r=request();//retrive submited form data
-        $students =Profile_student::find($r->id); 
-        $students->name=$r->name;
-        $students->gender=$r->gender;
-        $students->studentId=$r->studentId;
-        $students->batchNo=$r->batchNo;
-        $students->email=$r->email;
-        $students->contact=$r->contact;
-        $students->university=$r->university;
-        $students->fOStudy=$r->fOStudy;
-        $students->program=$r->program;
-        $students->gpa=$r->gpa;
-        $students->yearGraduate=$r->yearGraduate;
-      
-        $students->save(); //run the SQL update statment
-        return redirect()->route('student.home');
-    }
+   public function update(){
+    $r=request();//retrive submited form data
+    $students =Profile_student::find($r->id);  //get the record based on product ID           
+    $students->name=$r->name;
+    $students->studentId=$r->studentId;
+    $students->email=$r->email;
+    $students->contact=$r->contact;
+    $students->university=$r->university;
+    $students->gpa=$r->gpa;
+    $students->yearGraduate=$r->yearGraduate;
+    $students->save();
+    return redirect()->route('showStudentProfile');
+   }
 }

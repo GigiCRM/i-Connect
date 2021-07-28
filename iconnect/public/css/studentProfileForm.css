@@ -40,3 +40,15 @@ input[type=submit] {
     font-size: 0.8vw;
     text-align: center;
 }
+
+form {
+    border: 1px solid black;
+}
+
+#content {
+    padding: 15px;
+}
+
+#button:hover {
+    background-color: darkgreen;
+}
