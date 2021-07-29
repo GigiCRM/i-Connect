@@ -1,4 +1,4 @@
-@extends('layouts.adminNav')
+@extends('layouts.studentnav')
 @if(Session::has('success'))           
         <div class="alert alert-success" role="alert">
             {{ Session::get('success')}}
@@ -23,6 +23,8 @@
                     <th>Description</th>
                     <th>Employee Type</th>
                     <th>Status</th>
+                    <th>Action</th>
+
 
 		        </tr>
 		    </thead>
@@ -40,7 +42,9 @@
                         <td>{{$jobs->typeOfJob}}</td>
                         <td>{{$jobs->description}}</td>
                         <td>{{$jobs->employeeType}}</td>
-                        <td><a href="{{route('retreiveJob', ['id' => $jobs->id])}}" class="btn btn-warning"><i class="fas fa-edit">{{$jobs->status}}</i></a></td>
+                        <td>Approved</td>
+                        <td>Apply btn</td>
+
 		            </tr> 
                 @endforeach
 

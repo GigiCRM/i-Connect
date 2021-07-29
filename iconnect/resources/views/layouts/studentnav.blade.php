@@ -88,7 +88,7 @@
      <div class="navbar">
                 <a href="{{ route('student.home') }}">Home</a>
                 <a href="{{ route('showStudentProfile') }}">Student</a>
-                <a href="#news">Job Gallery</a> 
+                <a href="{{ route('viewJob') }}">Job Gallery</a> 
                 <a href="#home">Internship</a>
                 <a href="#news">Company List</a> 
                 <a href="#news">Contact Us</a> 

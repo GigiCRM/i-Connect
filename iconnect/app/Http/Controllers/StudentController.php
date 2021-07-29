@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Profile_student; 
 use App\Models\User; 
+use App\Models\Job; 
+
 Use Session;
 
 class StudentController extends Controller
@@ -112,4 +114,15 @@ class StudentController extends Controller
     return view('student/studentResume')->with('students',$students);
                            
 }
+
+    public function showJob(){
+
+        $jobs=DB::table('jobs')
+        ->select('jobs.*')
+        ->where('jobs.status','=','1')
+        ->get();
+
+        return view('student/viewJob')->with('jobs',$jobs);
+    }
+
 }

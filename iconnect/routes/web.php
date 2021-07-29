@@ -45,10 +45,16 @@ Route::post('/updateStudentProfile', [App\Http\Controllers\StudentController::cl
 
 Route::get('/showStudentResume', [App\Http\Controllers\StudentController::class, 'showResume'])->name('showStudentResume');
 
+Route::get('/jobGallery', [App\Http\Controllers\StudentController::class, 'showJob'])->name('viewJob');
 
 //admin
-Route::get('admin/insertJob', [App\Http\Controllers\AdminController::class, 'insertJob'])->name('insertJob');
+Route::get('admin/insertJob', [App\Http\Controllers\JobController::class, 'insertJob'])->name('insertJob');
 
-Route::post('admin/insertJob/store', [App\Http\Controllers\AdminController::class, 'store'])->name('addJob');
+Route::post('admin/insertJob/store', [App\Http\Controllers\JobController::class, 'store'])->name('addJob');
 
-Route::get('/showJob', [App\Http\Controllers\AdminController::class, 'showJob'])->name('showJob');
+Route::get('/showJob', [App\Http\Controllers\JobController::class, 'showJob'])->name('showJob');
+
+Route::get('/retreive/{id}', [App\Http\Controllers\AdminController::class, 'retrieve'])->name('retreiveJob');
+
+Route::post('/approval', [App\Http\Controllers\AdminController::class, 'approval'])->name('job.approve');
+

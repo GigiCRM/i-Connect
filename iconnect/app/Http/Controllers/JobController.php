@@ -8,7 +8,7 @@ use App\Models\Job;
 use App\Models\User; 
 Use Session;
 
-class AdminController extends Controller
+class JobController extends Controller
 {
     public function insertJob()
     {
@@ -32,7 +32,7 @@ class AdminController extends Controller
             'typeOfJob'=>$r->typeOfJob,
             'description'=>$r->description,
             'employeeType'=>$r->employeeType,
-            'status'=>0,
+            'status'=>1,
             'image'=>$imageName,
             
         ]);
@@ -45,21 +45,5 @@ class AdminController extends Controller
         $jobs=Job::paginate(12);
         
         return view('admin/showJob')->with('jobs',$jobs);
-    }
-
-    public function retrieve($id){
-        $jobs =Job::all()->where('id',$id);
-
-        return view('admin/pendingJob')->with('jobs',$jobs);
-    }
-
-    public function approval(){
-        $r=request();
-        $jobs = Job::find($r->id);
-     
-        $jobs->status =$r->status;
-        $jobs->save();
-
-            return redirect()->route('showJob');
     }
 }

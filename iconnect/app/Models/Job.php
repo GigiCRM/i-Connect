@@ -24,4 +24,13 @@ class Job extends Model
       'status'
     ];
 
+    public function user_student(){
+      return $this->hasMany('App\User_student');
+  }
+
+  public function admin(){
+    return $this->hasOne('App\AdminController');
+}
+
+
 }

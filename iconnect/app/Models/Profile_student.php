@@ -30,4 +30,9 @@ class Profile_student extends Model
         return $this->hasOne('App\User_student');
     }
 
+    public function job(){
+        return $this->hasOne('App\JobController');
+    }
+
+
 }
