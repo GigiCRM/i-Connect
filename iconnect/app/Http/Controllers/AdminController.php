@@ -47,19 +47,13 @@ class AdminController extends Controller
         return view('admin/showJob')->with('jobs',$jobs);
     }
 
-    public function retrieve($id){
+    public function approval($id){
         $jobs =Job::all()->where('id',$id);
-
-        return view('admin/pendingJob')->with('jobs',$jobs);
-    }
-
-    public function approval(){
         $r=request();
         $jobs = Job::find($r->id);
-     
-        $jobs->status =$r->status;
+        $jobs->status =1;
         $jobs->save();
 
-            return redirect()->route('showJob');
+         return redirect()->route('showJob')->with('jobs',$jobs);
     }
 }

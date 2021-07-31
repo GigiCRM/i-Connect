@@ -54,7 +54,5 @@ Route::post('admin/insertJob/store', [App\Http\Controllers\JobController::class,
 
 Route::get('/showJob', [App\Http\Controllers\JobController::class, 'showJob'])->name('showJob');
 
-Route::get('/retreive/{id}', [App\Http\Controllers\AdminController::class, 'retrieve'])->name('retreiveJob');
-
-Route::post('/approval', [App\Http\Controllers\AdminController::class, 'approval'])->name('job.approve');
+Route::get('/approval/{id}', [App\Http\Controllers\AdminController::class, 'approval'])->name('job.approve');
 

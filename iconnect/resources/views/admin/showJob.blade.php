@@ -40,7 +40,7 @@
                         <td>{{$jobs->typeOfJob}}</td>
                         <td>{{$jobs->description}}</td>
                         <td>{{$jobs->employeeType}}</td>
-                        <td><a href="{{route('retreiveJob', ['id' => $jobs->id])}}" class="btn btn-warning"><i class="fas fa-edit">{{$jobs->status}}</i></a></td>
+                        <td><a href="{{route('job.approve', ['id' => $jobs->id])}}" class="btn btn-warning"><i class="">{{$jobs->status}}</i></a></td>
 		            </tr> 
                 @endforeach
 
