@@ -49,4 +49,8 @@ class User extends Authenticatable
     public function student(){
         return $this->hasOne('App\Profile_student');
     }
+
+    public function company(){
+        return $this->hasOne('App\Profile_company');
+    }
 }

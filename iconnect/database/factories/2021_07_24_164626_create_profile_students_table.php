@@ -31,6 +31,8 @@ class CreateProfileStudentsTable extends Migration
             $table->string('Image');
             $table->timestamps();
         });
+
+        
     }
 
     /**

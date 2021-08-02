@@ -48,7 +48,7 @@ Route::get('/showStudentResume', [App\Http\Controllers\StudentController::class,
 Route::get('/jobGallery', [App\Http\Controllers\StudentController::class, 'showJob'])->name('viewJob');
 
 //admin
-Route::get('admin/insertJob', [App\Http\Controllers\JobController::class, 'insertJob'])->name('insertJob');
+Route::get('/insertJob', [App\Http\Controllers\JobController::class, 'insertJob'])->name('insertJob');
 
 Route::post('admin/insertJob/store', [App\Http\Controllers\JobController::class, 'store'])->name('addJob');
 
@@ -60,4 +60,5 @@ Route::get('/showStudentList', [App\Http\Controllers\AdminController::class, 'st
 
 Route::get('/showStudentProfile/{id}', [App\Http\Controllers\AdminController::class, 'studentProfile'])->name('showStudent.Profile');
 
+//company
 

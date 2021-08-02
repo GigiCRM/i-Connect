@@ -27,16 +27,13 @@ class Profile_student extends Model
     ];
 
     public function user_student(){
-        return $this->hasOne('App\User_student');
+        return $this->hasOne('App\User_studentController');
     }
 
     public function job(){
-        return $this->hasOne('App\JobController');
+        return $this->hasOne('App\Job');
     }
 
-    public function admin(){
-        return $this->hasMany('App\AdminController');
-    }
 
 
 }
