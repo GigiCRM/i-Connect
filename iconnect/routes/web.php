@@ -56,3 +56,8 @@ Route::get('/showJob', [App\Http\Controllers\JobController::class, 'showJob'])->
 
 Route::get('/approval/{id}', [App\Http\Controllers\AdminController::class, 'approval'])->name('job.approve');
 
+Route::get('/showStudentList', [App\Http\Controllers\AdminController::class, 'studentList'])->name('showStudentList');
+
+Route::get('/showStudentProfile/{id}', [App\Http\Controllers\AdminController::class, 'studentProfile'])->name('showStudent.Profile');
+
+

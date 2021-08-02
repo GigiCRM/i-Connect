@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Job; 
 use App\Models\User; 
+use App\Models\Profile_student; 
 Use Session;
 
 class AdminController extends Controller
@@ -55,5 +56,21 @@ class AdminController extends Controller
         $jobs->save();
 
          return redirect()->route('showJob')->with('jobs',$jobs);
+    }
+
+    public function studentList(){
+
+        $students=DB::table('profile_students')
+        ->select('profile_students.*')
+        ->get();
+
+        return view('admin/studentList')->with('students',$students);
+    }
+
+    public function studentProfile($id){
+       $students=Profile_student::all()->where('id',$id);
+    
+        return view('admin/studentProfile')->with('students',$students);
+
     }
 }

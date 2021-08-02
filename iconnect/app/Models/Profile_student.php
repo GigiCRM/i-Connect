@@ -34,5 +34,9 @@ class Profile_student extends Model
         return $this->hasOne('App\JobController');
     }
 
+    public function admin(){
+        return $this->hasMany('App\AdminController');
+    }
+
 
 }

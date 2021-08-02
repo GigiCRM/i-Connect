@@ -93,7 +93,7 @@
                     <i class="fa fa-caret-down"></i>
                     </button>
                 <div class="dropdown-content">
-                    <a href="#">Personal Details</a>
+                    <a href="{{ route('showStudentList') }}">Student List</a>
                     <a href="#">Resume</a>
                     <a href="#">Intern Status</a>
                 </div>

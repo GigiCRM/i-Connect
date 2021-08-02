@@ -30,7 +30,7 @@ class Job extends Model
 
   public function admin(){
     return $this->hasOne('App\AdminController');
-}
+  }
 
 
 }

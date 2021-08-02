@@ -66,7 +66,7 @@
                 </div>
                 <div class="col-md-3">
                     <img src="{{ asset('img/suc.jpg') }}" alt="SUC" width="200px" height="250px">
-                    <div class="content"><a href=""> Southern Website</a></div>
+                    <div class="content"><a href="https://www.southern.edu.my/home.html"> Southern Website</a></div>
                 </div>
             </div>
         </div>
