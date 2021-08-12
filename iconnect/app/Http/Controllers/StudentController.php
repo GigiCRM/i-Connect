@@ -7,6 +7,9 @@ use DB;
 use App\Models\Profile_student; 
 use App\Models\User; 
 use App\Models\Job; 
+use App\Models\AppliedJob; 
+
+Use Auth;
 
 Use Session;
 
@@ -38,12 +41,12 @@ class StudentController extends Controller
         $profileImage->move('img',$profileImage->getClientOriginalName());   //images is the location                
         $PImage=$profileImage->getClientOriginalName();
 
-        $addStudentProfile=Profile_student::create([    //step 3 bind data
+        $addStudentProfile=Profile_student::updateOrCreate([    //step 3 bind data
             'Name'=>$r->name, //add on 
             'Gender'=>$r->gender, //fullname from HTML
             'StudentID'=>$r->studentId,
             'Batch_No'=>$r->batchNo,
-            'Email'=>$r->email,
+            'Email'=>Auth::user()->email,
             'Contact'=>$r->contact,
             'University'=>$r->university,
             'FieldOfStudy'=>$r->fOStudy,
@@ -61,21 +64,24 @@ class StudentController extends Controller
     }
 
     public function show(){
-       
+        $email=Auth::user()->email;
         $students=DB::table('profile_students')
-        ->join('users','profile_students.Email','=','users.email')
-        ->select('profile_students.*')
+        ->leftjoin('users','users.email','=','profile_students.Email')
+        ->select('users.*','profile_students.*')
+        ->where('users.email','=',$email)
         ->get();
 
-        return view('student/studentHome')->with('students',$students);
+        return view('student/studentProfile')->with('students',$students);
                                
     }
 
     public function studentProfile(){
-    
+     
+        $email=Auth::user()->email;
         $students=DB::table('profile_students')
-        ->join('users','profile_students.Email','=','users.email')
-        ->select('profile_students.*')
+        ->leftjoin('users','users.email','=','profile_students.Email')
+        ->select('users.*','profile_students.*')
+        ->where('users.email','=',$email)
         ->get();
 
         return view('student/studentHome')->with('students',$students);
@@ -106,10 +112,12 @@ class StudentController extends Controller
 
    public function showResume(){
        
-    $students=DB::table('profile_students')
-    ->join('users','profile_students.Email','=','users.email')
-    ->select('profile_students.*')
-    ->get();
+    $email=Auth::user()->email;
+        $students=DB::table('profile_students')
+        ->leftjoin('users','users.email','=','profile_students.Email')
+        ->select('users.*','profile_students.*')
+        ->where('users.email','=',$email)
+        ->get();
 
     return view('student/studentResume')->with('students',$students);
                            
@@ -119,10 +127,43 @@ class StudentController extends Controller
 
         $jobs=DB::table('jobs')
         ->select('jobs.*')
-        ->where('jobs.status','=','1')
+        ->where('jobs.status','=','Valid')
         ->get();
 
         return view('student/viewJob')->with('jobs',$jobs);
     }
 
+    public function showInternStatus(){
+       
+            $email=Auth::user()->email;
+            $internStatus=DB::table('intern_statuses')            
+            ->leftJoin('users','users.email','=','intern_statuses.email')
+            ->leftJoin('profile_students','profile_students.Email','=','users.email')                        
+            ->select('profile_students.Image as studentImage','intern_statuses.*')
+            ->where('users.email','=',$email)
+            ->get();
+    
+        return view('student/showStatus')->with('internStatus',$internStatus);
+                               
+    }
+
+    public function apply(){
+        $r=request(); 
+        $jobId =Job::find($r->id);    
+        $studentId=Auth::user()->id; 
+
+        $addApply=AppliedJob::updateOrCreate([    
+            'jobId'=>$id, 
+            'studentId'=>$studentId, 
+            'status'=>"Pending",
+          
+        ]);
+        Session::flash('success',"Successfully Applied !");
+
+        return redirect()->route('viewJob');
+    }
+    
+
 }
+
+   

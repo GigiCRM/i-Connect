@@ -87,13 +87,14 @@
      
         <!-- Navbar -->
         <div class="navbar">
-                <a href="">Home</a>
+                <a href="{{ route('company.home') }}">Home</a>
             <div class="dropdown">
                     <button class="dropbtn">Company 
                     <i class="fa fa-caret-down"></i>
                     </button>
                 <div class="dropdown-content">
-                    <a href="#">Profile</a>
+                    <a href="{{ route('insertCompanyProfile') }}">Insert Profile</a>
+                    <a href="{{ route('showCompanyProfile') }}">Profile</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -111,8 +112,8 @@
                     <i class="fa fa-caret-down"></i>
                     </button>
                 <div class="dropdown-content">
-                    <a href="{{ route('insertJob') }}">Insert Job</a>
-                    <a href="#">Job Listing</a>
+                    <a href="{{ route('company.insertJob') }}">Insert Job</a>
+                    <a href="{{ route('company.showJob') }}">Job Listing</a>
                 </div>
             </div>
                 <a href="#news">Company</a> 

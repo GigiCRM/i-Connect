@@ -1,4 +1,4 @@
-@extends('layouts.studentnav')
+@extends('layouts.companyNav')
 @if(Session::has('success'))           
         <div class="alert alert-success" role="alert">
             {{ Session::get('success')}}
@@ -12,7 +12,6 @@
 		        <thead>
 		        <tr class="thead-dark">
                     <th></th>
-                    <th>Id</th>
 		            <th>Job</th>
                     <th>Publisher ID</th>
 		            <th>Postion</th>
@@ -23,8 +22,7 @@
                     <th>Type of Job</th>
                     <th>Description</th>
                     <th>Employee Type</th>
-                    <th>Action</th>
-
+                    <th>Status</th>
 
 		        </tr>
 		    </thead>
@@ -32,8 +30,7 @@
                 @foreach($jobs as $jobs)
 		            <tr>
                         <td><img src="{{ asset('img/') }}/{{$jobs->image}}" alt="" width="50"></td>
-		                <td>{{$jobs->id}}</td>
-                        <td>{{$jobs->jobName}}</td>
+		                <td>{{$jobs->jobName}}</td>
                         <td>{{$jobs->publisherId}}</td>
                         <td>{{$jobs->position}}</td>
                         <td>{{$jobs->salary}}</td>
@@ -43,12 +40,8 @@
                         <td>{{$jobs->typeOfJob}}</td>
                         <td>{{$jobs->description}}</td>
                         <td>{{$jobs->employeeType}}</td>
-                        <td> <input type="hidden" name="id" id="id" value="{{$jobs->id}}"><a href="{{route('applyJob')}}" class="btn btn-warning">Apply</a></td>
-
+                        <td>{{$jobs->status}}</td>
 		            </tr> 
-
-                   
-
                 @endforeach
 
 				

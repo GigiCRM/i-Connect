@@ -20,7 +20,7 @@ class CreateProfileCompaniesTable extends Migration
             $table->string('type');
             $table->string('address');
             $table->string('image');
-            $table->integer('conatact');
+            $table->integer('contact');
             $table->string('ssm');
             $table->timestamps();
         });

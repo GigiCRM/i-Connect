@@ -1,4 +1,4 @@
-@extends('layouts.adminNav')
+@extends('layouts.companyNav')
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row justify-content-center align-items-center">
         <div id="form" class="col-md-10">
-        <form class="subform"  method="post" action="{{ route('addJob') }}" enctype="multipart/form-data">
+        <form class="subform"  method="post" action="{{ route('company.addJob') }}" enctype="multipart/form-data">
             @csrf   
             
             <div id="content">

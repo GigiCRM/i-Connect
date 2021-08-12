@@ -1,4 +1,4 @@
-@extends('layouts.studentnav')
+@extends('layouts.companyNav')
 @if(Session::has('success'))           
         <div class="alert alert-success" role="alert">
             {{ Session::get('success')}}
@@ -12,7 +12,7 @@
 		        <thead>
 		        <tr class="thead-dark">
                     <th></th>
-                    <th>Id</th>
+                    <th>Job Id</th>
 		            <th>Job</th>
                     <th>Publisher ID</th>
 		            <th>Postion</th>
@@ -23,6 +23,7 @@
                     <th>Type of Job</th>
                     <th>Description</th>
                     <th>Employee Type</th>
+                    <th>Status</th>
                     <th>Action</th>
 
 
@@ -43,12 +44,15 @@
                         <td>{{$jobs->typeOfJob}}</td>
                         <td>{{$jobs->description}}</td>
                         <td>{{$jobs->employeeType}}</td>
-                        <td> <input type="hidden" name="id" id="id" value="{{$jobs->id}}"><a href="{{route('applyJob')}}" class="btn btn-warning">Apply</a></td>
+                        <td>{{$jobs->status}}</td>
+                        <td><a href="{{route('company.editJob', ['id' => $jobs->id])}}" class="btn btn-warning">Edit</a>
+
+                        <a href="{{route('company.deleteJob', ['id' => $jobs->id])}}" class="btn btn-danger" onclick="return confirm('Sure Want Delete?')">Delete</a>
+
+                        
+                        </td>
 
 		            </tr> 
-
-                   
-
                 @endforeach
 
 				

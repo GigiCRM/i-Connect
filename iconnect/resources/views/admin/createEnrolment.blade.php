@@ -16,6 +16,11 @@
                 <p style="text-align:center;">Job Posting</p>
 
                 <div class="form-group input-group-lg">
+                <label for="publisherId" class="text-info">Publisher ID:</label><br>
+                <input type="text" name="publisherId" id="publisherId" class="form-control">
+                </div>
+
+                <div class="form-group input-group-lg">
                 <label for="jobName" class="text-info">Job:</label><br>
                 <input type="text" name="jobName" id="jobName" class="form-control">
                 </div>

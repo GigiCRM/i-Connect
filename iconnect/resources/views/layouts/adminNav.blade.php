@@ -95,7 +95,7 @@
                 <div class="dropdown-content">
                     <a href="{{ route('showStudentList') }}">Student List</a>
                     <a href="#">Resume</a>
-                    <a href="#">Intern Status</a>
+                    <a href="{{ route('showStudentInternStatus') }}">Intern Status</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -114,7 +114,8 @@
                     </button>
                 <div class="dropdown-content">
                     <a href="#">User Guide</a>
-                    <a href="#">Enrollment</a>
+                    <a href="{{ route('showEnrolmentSubject') }}">Enrollment List</a>
+                    <a href="{{ route('insertEnrolmentSubject') }}">Insert Enrollment Subject</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -126,7 +127,7 @@
                     <a href="{{ route('showJob') }}">Job Listing</a>
                 </div>
             </div>
-                <a href="#news">Company</a> 
+                <a href="{{ route('admin.showCompanyProfile') }}">Company</a> 
                 <a href="#news">Contact Us</a> 
         </div>
         

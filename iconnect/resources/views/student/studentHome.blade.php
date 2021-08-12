@@ -19,7 +19,8 @@
     <div class="side-content">
         <a href="{{ route('showStudentProfile') }}" class="w3-bar-item w3-button w3-padding-16">Profile</a>
         <a href="{{ route('showStudentResume') }}" class="w3-bar-item w3-button w3-padding-16">Resume</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-16">Intern Status</a>
+        <a href="{{ route('insert.internStatus') }}" class="w3-bar-item w3-button w3-padding-16">Intern Status Selection</a>
+        <a href="{{ route('showInternStatus') }}" class="w3-bar-item w3-button w3-padding-16">Intern Status</a>
         <a href="#" class="w3-bar-item w3-button w3-padding-16">Weekly Task</a>
         <a href="#" class="w3-bar-item w3-button w3-padding-16">Classroom</a>
     </div>
@@ -34,10 +35,9 @@
 <div class="page-content">
     <div class="w3-container w3-light-grey" id="info-background">
    
-    <a href="{{route('editStudentProfile', ['id' => $students->id])}}" class="btn btn-info" id="button"><i class="fas fa-edit">EDIT</i></a> 
 <div id="center">
     <div class="info">
-        <h3 >Personal Info</h3> 
+        <h3 style="background-color:carol;" >Personal Info</h3> 
         <div><img src="{{ asset('img/') }}/{{$students->Image}}"  alt=""></div>
         <div><em> Name:</em> {{$students->Name}}</div>
         <div><em> Gender:</em> {{$students->Gender}}</div>
@@ -47,7 +47,7 @@
         <div><em> Email:</em> {{$students->Email}}</div>
         <div><em>Contact:</em>  {{$students->Contact}}</div>
 
-        <h3 style="margin: top 25px;">Educational Background</h3>
+        <h3 style="margin: top 25px;background-color:carol;">Educational Background</h3>
         <div><em> University:</em> {{$students->University}}</div>
         <div><em> Field of Study:</em> {{$students->FieldOfStudy}}</div>
         <div><em> Program:</em> {{$students->Program}}</div>

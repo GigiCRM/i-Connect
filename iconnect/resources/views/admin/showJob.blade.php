@@ -12,6 +12,7 @@
 		        <thead>
 		        <tr class="thead-dark">
                     <th></th>
+                    <th>Job Id</th>
 		            <th>Job</th>
                     <th>Publisher ID</th>
 		            <th>Postion</th>
@@ -23,6 +24,8 @@
                     <th>Description</th>
                     <th>Employee Type</th>
                     <th>Status</th>
+                    <th>Action</th>
+
 
 		        </tr>
 		    </thead>
@@ -30,7 +33,8 @@
                 @foreach($jobs as $jobs)
 		            <tr>
                         <td><img src="{{ asset('img/') }}/{{$jobs->image}}" alt="" width="50"></td>
-		                <td>{{$jobs->jobName}}</td>
+		                <td>{{$jobs->id}}</td>
+                        <td>{{$jobs->jobName}}</td>
                         <td>{{$jobs->publisherId}}</td>
                         <td>{{$jobs->position}}</td>
                         <td>{{$jobs->salary}}</td>
@@ -41,6 +45,13 @@
                         <td>{{$jobs->description}}</td>
                         <td>{{$jobs->employeeType}}</td>
                         <td><a href="{{route('job.approve', ['id' => $jobs->id])}}" class="btn btn-warning"><i class="">{{$jobs->status}}</i></a></td>
+                        <td><a href="{{route('editJob', ['id' => $jobs->id])}}" class="btn btn-warning">Edit</a>
+
+                        <a href="{{route('deleteJob', ['id' => $jobs->id])}}" class="btn btn-danger" onclick="return confirm('Sure Want Delete?')">Delete</a>
+
+                        
+                        </td>
+
 		            </tr> 
                 @endforeach
 
