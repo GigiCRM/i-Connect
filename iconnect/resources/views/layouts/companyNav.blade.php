@@ -31,7 +31,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('admin.home') }}">
+                <a class="navbar-brand" href="{{ route('company.home') }}">
                     i-Connect
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -102,7 +102,7 @@
                     <i class="fa fa-caret-down"></i>
                     </button>
                 <div class="dropdown-content">
-                    <a href="#">Apply List</a>
+                    <a href="{{ route('showAppliedJob') }}">Apply List</a>
                     <a href="#">Employee list</a>
                     <a href="#">Employee Report</a>
                 </div>
@@ -116,9 +116,9 @@
                     <a href="{{ route('company.showJob') }}">Job Listing</a>
                 </div>
             </div>
-                <a href="#news">Company</a> 
+                <a href="{{ route('company.showCompanyList') }}">Company List</a> 
                 <a href="#news">Contact Us</a> 
-        </div>
+            </div>
         
 
         <main class="py-4" style="display:inline;">

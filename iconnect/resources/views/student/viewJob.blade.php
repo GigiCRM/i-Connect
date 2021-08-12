@@ -43,7 +43,7 @@
                         <td>{{$jobs->typeOfJob}}</td>
                         <td>{{$jobs->description}}</td>
                         <td>{{$jobs->employeeType}}</td>
-                        <td> <input type="hidden" name="id" id="id" value="{{$jobs->id}}"><a href="{{route('applyJob')}}" class="btn btn-warning">Apply</a></td>
+                        <td> <a href="{{route('applyJob', ['id' => $jobs->id])}}" class="btn btn-warning">Apply</a></td>
 
 		            </tr> 
 

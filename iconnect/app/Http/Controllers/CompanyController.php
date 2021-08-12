@@ -151,6 +151,26 @@ class CompanyController extends Controller
         return redirect()->route('company.showJob');
     }
 
+    public function showAppliedJob(){
+        $publisherId=Auth::user()->id;
+
+        $jobs=DB::table('applied_jobs')
+        ->leftjoin('profile_students','profile_students.StudentNo','=','applied_jobs.studentId')
+        ->leftjoin('jobs','jobs.id','=','applied_jobs.jobId')
+        ->select('profile_students.Name as studentName','profile_students.Email as studentEmail','profile_students.Contact as studentContact','jobs.jobName as JobName','applied_jobs.*')
+        ->where('applied_jobs.publisherId','=',$publisherId)
+        ->get();
+
+        return view('company/appliedList')->with('jobs',$jobs);
+    }
+
+    public function showCompanyList(){
+        $company=Profile_company::paginate(12);
+        
+        return view('company/showCompanyList')->with('company',$company);
+    }
+
+
 
     
 }

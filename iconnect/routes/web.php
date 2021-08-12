@@ -53,7 +53,9 @@ Route::get('student/internStatus', [App\Http\Controllers\InternStatusController:
 
 Route::get('/showInternStatus', [App\Http\Controllers\StudentController::class, 'showInternStatus'])->name('showInternStatus');
 
-Route::get('student/applyJob/store', [App\Http\Controllers\StudentController::class, 'apply'])->name('applyJob');
+Route::get('student/applyJob/{id}', [App\Http\Controllers\StudentController::class, 'apply'])->name('applyJob');
+
+Route::get('/student/showCompanyList', [App\Http\Controllers\StudentController::class, 'showCompanyList'])->name('student.showCompanyList');
 
 
 
@@ -126,5 +128,9 @@ Route::get('/company/editJob/{id}', [App\Http\Controllers\CompanyController::cla
 Route::post('/company/updateJob', [App\Http\Controllers\CompanyController::class, 'updateJob'])->name('company.updateJob');
 
 Route::get('/company/deleteJob/{id}', [App\Http\Controllers\CompanyController::class, 'deleteJob'])->name('company.deleteJob');
+
+Route::get('/showAppliedJob', [App\Http\Controllers\CompanyController::class, 'showAppliedJob'])->name('showAppliedJob');
+
+Route::get('/company/showCompanyList', [App\Http\Controllers\CompanyController::class, 'showCompanyList'])->name('company.showCompanyList');
 
 

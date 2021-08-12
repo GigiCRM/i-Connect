@@ -12,6 +12,7 @@ class Profile_student extends Model
     protected $fillable = [
         'Name',
         'Gender',
+        'StudentNo',
         'StudentID',
         'Batch_No',
         'Email',

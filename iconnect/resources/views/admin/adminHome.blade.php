@@ -54,7 +54,7 @@
             <div class="container">
                 <div class="col-md-3">
                     <img src="{{ asset('img/partner.jpg') }}" alt="Partner" width="200px" height="250px">
-                    <div class="content"><a href="">Company</a></div>
+                    <div class="content"><a href="{{ route('admin.showCompanyProfile') }}">Company</a></div>
                 </div>
                 <div class="col-md-3">
                     <img src="{{ asset('img/full-time.jpg') }}" alt="Full-time" width="200px" height="250px">

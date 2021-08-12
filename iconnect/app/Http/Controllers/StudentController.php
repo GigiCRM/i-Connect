@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Models\Profile_student; 
-use App\Models\User; 
 use App\Models\Job; 
-use App\Models\AppliedJob; 
-
+use App\Models\User; 
+use App\Models\Profile_student; 
+use App\Models\InternStatus; 
+use App\Models\Enrolment_subject; 
+use App\Models\Profile_company;
 Use Auth;
-
 Use Session;
 
 class StudentController extends Controller
@@ -29,6 +29,7 @@ class StudentController extends Controller
 
     public function store(){    //step 2 
         $r=request(); //step 3 get data from HTML
+
         $image=$r->file('project-image');   //step to upload image get the file input
         $image->move('img',$image->getClientOriginalName());   //images is the location                
         $imageName=$image->getClientOriginalName(); 
@@ -44,6 +45,7 @@ class StudentController extends Controller
         $addStudentProfile=Profile_student::updateOrCreate([    //step 3 bind data
             'Name'=>$r->name, //add on 
             'Gender'=>$r->gender, //fullname from HTML
+            'StudentNo'=>Auth::user()->id,
             'StudentID'=>$r->studentId,
             'Batch_No'=>$r->batchNo,
             'Email'=>Auth::user()->email,
@@ -147,13 +149,15 @@ class StudentController extends Controller
                                
     }
 
-    public function apply(){
+    public function apply($id){
+        $jobs =Job::all()->where('id',$id);
         $r=request(); 
         $jobId =Job::find($r->id);    
         $studentId=Auth::user()->id; 
 
         $addApply=AppliedJob::updateOrCreate([    
             'jobId'=>$id, 
+            'publisherId'=>$jobId->publisherId,
             'studentId'=>$studentId, 
             'status'=>"Pending",
           
@@ -162,6 +166,13 @@ class StudentController extends Controller
 
         return redirect()->route('viewJob');
     }
+
+    public function showCompanyList(){
+        $company=Profile_company::paginate(12);
+        
+        return view('student/showCompanyList')->with('company',$company);
+    }
+
     
 
 }

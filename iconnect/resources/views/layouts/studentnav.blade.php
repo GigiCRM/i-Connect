@@ -90,7 +90,7 @@
                 <a href="{{ route('showStudentProfile') }}">Student</a>
                 <a href="{{ route('viewJob') }}">Job Gallery</a> 
                 <a href="#home">Internship</a>
-                <a href="#news">Company List</a> 
+                <a href="{{ route('student.showCompanyList') }}">Company List</a> 
                 <a href="#news">Contact Us</a> 
     </div>
 

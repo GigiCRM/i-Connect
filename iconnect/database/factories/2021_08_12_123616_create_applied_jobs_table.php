@@ -16,6 +16,7 @@ class CreateAppliedJobsTable extends Migration
         Schema::create('applied_jobs', function (Blueprint $table) {
             $table->id();
             $table->string('jobId');
+            $table->string('publisherId');
             $table->string('studentId');
             $table->string('status');
             $table->timestamps();

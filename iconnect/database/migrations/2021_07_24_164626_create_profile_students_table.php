@@ -17,6 +17,7 @@ class CreateProfileStudentsTable extends Migration
             $table->id();
             $table->string('Name');
             $table->string('Gender');
+            $table->string('StudentNo');
             $table->string('StudentID');
             $table->string('Batch_No');
             $table->string('Email');

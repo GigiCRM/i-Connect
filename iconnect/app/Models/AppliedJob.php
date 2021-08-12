@@ -12,8 +12,10 @@ class AppliedJob extends Model
     
     protected $fillable = [
       'jobId',
+      'publisherId',
       'studentId',
-      'status'
+      'status',
+
        ];
 
 
