@@ -28,10 +28,14 @@
         <div><em> No:</em> {{$profile->id}}</div>
         <div><em> Company Id:</em> {{$profile->companyId}}</div>
         <div><em> Name:</em> {{$profile->name}}</div>
+        <div><em> Founder:</em> {{$profile->founder}}</div>
+        <div><em> Establish Year:</em> {{$profile->establish}}</div>
         <div><em>Company Type:</em>  {{$profile->type}}</div>
         <div><em> Address:</em> {{$profile->address}}</div>
         <div><em> Contact No:</em> {{$profile->contact}}</div>
         <div><em> SSM:</em> {{$profile->ssm}}</div>
+        <div><em> URL:</em> {{$profile->URL}}</div>
+
 
        
     </div>

@@ -1,65 +1,66 @@
+
 @extends('layouts.companyNav')
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{{ asset('css/alumni.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+
 @if(Session::has('success'))           
         <div class="alert alert-success" role="alert">
             {{ Session::get('success')}}
         </div>       
 @endif 
+
 @section('content')
 
-<div class="container">
-	    <div class="row">
-		    <table class="table table-hover table-striped">
-		        <thead>
-		        <tr class="thead-dark">
-                    <th></th>
-                    <th>Job Id</th>
-		            <th>Job</th>
-                    <th>Publisher ID</th>
-		            <th>Postion</th>
-                    <th>Salary</th>
-		            <th>Qualification</th>
-                    <th>Location</th>
-		            <th>Working Hour</th>
-                    <th>Type of Job</th>
-                    <th>Description</th>
-                    <th>Employee Type</th>
-                    <th>Status</th>
-                    <th>Action</th>
+<div class="body">
 
+        <h2>
+            <form action="{{ route('company.searchJob') }}" method="post"  id="search">
+                @csrf
+                <input type="text" name="searchJob" id="searchJob">
+                <button class="btn btn-info" type="submit" id="button">Search</button>
+            </form>
+        </h2>
 
-		        </tr>
-		    </thead>
-		        <tbody>	
-                @foreach($jobs as $jobs)
-		            <tr>
-                        <td><img src="{{ asset('img/') }}/{{$jobs->image}}" alt="" width="50"></td>
-		                <td>{{$jobs->id}}</td>
-                        <td>{{$jobs->jobName}}</td>
-                        <td>{{$jobs->publisherId}}</td>
-                        <td>{{$jobs->position}}</td>
-                        <td>{{$jobs->salary}}</td>
-                        <td>{{$jobs->qualification}}</td>
-                        <td>{{$jobs->location}}</td>
-                        <td>{{$jobs->workingHour}}</td>
-                        <td>{{$jobs->typeOfJob}}</td>
-                        <td>{{$jobs->description}}</td>
-                        <td>{{$jobs->employeeType}}</td>
-                        <td>{{$jobs->status}}</td>
-                        <td><a href="{{route('company.editJob', ['id' => $jobs->id])}}" class="btn btn-warning">Edit</a>
+     
+    @foreach($job as $jobs)
+    <div class="box" style="display:block;">
+    <div class="col-md-4">
+    <div class="card" id="card">
+       
+        <div id="none">{{$jobs->id}}</div>
+        <div class="title">{{$jobs->jobName}}</div>
+        <div><img src="{{ asset('img/') }}/{{$jobs->image}}" alt="" width="150" height="150px"></div>
+        <div><em>Emloyee: <em>{{$jobs->employeeType}}</div>
+        <div><em>Type of Job: <em>{{$jobs->typeOfJob}}</div>
+        <div><em>Position: <em>{{$jobs->position}}</div>
+        <div><em>Salary: RM <em>{{$jobs->salary}}</div>
+        <div><em>Requirements: <em>{{$jobs->qualification}}</div>
+        <div><em>Address: <em>{{$jobs->location}}</div>
+        <div><em>Working Hour: <em>{{$jobs->workingHour}}</div>
+        <div><em>Description: <em>{{$jobs->description}}</div>
+        <div id="none">{{$jobs->publisherId}}</div>
 
-                        <a href="{{route('company.deleteJob', ['id' => $jobs->id])}}" class="btn btn-danger" onclick="return confirm('Sure Want Delete?')">Delete</a>
-
-                        
-                        </td>
-
-		            </tr> 
-                @endforeach
-
-				
-		        </tbody>
-		    </table>
-
-	</div>
     </div>
+    </div>
+    </div>
+    @endforeach
+            <div class="pagination" style="display:block;">
+                {!! $job->links() !!}
+            </div>
+
+
+    </div>
+   
+
+
+
 
 @endsection

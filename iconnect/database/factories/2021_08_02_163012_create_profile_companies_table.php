@@ -17,11 +17,15 @@ class CreateProfileCompaniesTable extends Migration
             $table->id();
             $table->string('companyId');
             $table->string('name');
+            $table->string('founder');
             $table->string('type');
             $table->string('address');
             $table->string('image');
             $table->integer('contact');
             $table->string('ssm');
+            $table->string('establish');
+            $table->string('URL');
+
             $table->timestamps();
         });
     }

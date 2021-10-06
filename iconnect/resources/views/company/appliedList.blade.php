@@ -7,13 +7,21 @@
 @section('content')
 
 <div class="container">
-	    <div class="row">
+
+<h2>
+            <form action="{{ route('company.searchStudent') }}" method="post"  id="search" style="float:right; margin-bottom:15px;">
+                @csrf
+                <input type="text" name="searchJob" id="searchJob">
+                <button class="btn btn-info" type="submit" id="button">Search</button>
+            </form>
+        </h2>
+	    <div class="row" style="display:block;">
 		    <table class="table table-hover table-striped">
 		        <thead>
 		        <tr class="thead-dark">
-		            <th>Job Id</th>
+		            <th style="display:none;">Job Id</th>
                     <th>Job Name</th>
-                    <th>Publisher ID</th>
+                    <th  style="display:none;">Publisher ID</th>
                     <th>Student Id</th>
                     <th>Name</th>
 		            <th>Email</th>
@@ -25,22 +33,22 @@
 		        </tr>
 		    </thead>
 		        <tbody>	
-                @foreach($jobs as $jobs)
+                @foreach($job as $jobs)
 		            <tr> 
-                        <td>{{$jobs->jobId}}</td>
+                        <td  style="display:none;">{{$jobs->jobId}}</td>
                         <td>{{$jobs->JobName}}</td>
-                        <td>{{$jobs->publisherId}}</td>
+                        <td  style="display:none;">{{$jobs->publisherId}}</td>
 		                <td>{{$jobs->studentId}}</td>
                         <td>{{$jobs->studentName}}</td>
                         <td>{{$jobs->studentEmail}}</td>
                         <td>{{$jobs->studentContact}}</td>
-                       
-                        <td><a href="" class="btn btn-warning"><i class="">{{$jobs->status}}</i></a></td>
-                        <td><a href="#" class="btn btn-warning">Edit</a>
+                        <td>{{$jobs->status}}</td>
 
-                        <a href="#" class="btn btn-danger" onclick="return confirm('Sure Want Delete?')">Delete</a>
+                        <td>
+                        <a href="{{route('company.approve', ['id' => $jobs->id])}}" class="btn btn-warning">Approve</a>
 
-                        
+                        <a href="{{route('company.decline', ['id' => $jobs->id])}}" class="btn btn-danger">Decline</a>
+
                         </td>
 
 		            </tr> 

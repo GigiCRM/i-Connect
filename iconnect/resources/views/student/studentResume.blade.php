@@ -20,9 +20,8 @@
         <a href="{{ route('showStudentProfile') }}" class="w3-bar-item w3-button w3-padding-16">Profile</a>
         <a href="{{ route('showStudentResume') }}" class="w3-bar-item w3-button w3-padding-16">Resume</a>
         <a href="{{ route('insert.internStatus') }}" class="w3-bar-item w3-button w3-padding-16">Intern Status Selection</a>
-        <a href="{{ route('showInternStatus') }}" class="w3-bar-item w3-button w3-padding-16">Intern Status</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-16">Weekly Task</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-16">Classroom</a>
+        <a href="{{ route('showInternDetail') }}" class="w3-bar-item w3-button w3-padding-16">Intern Status</a>
+        <a href="{{ route('student.showEnrolSubject') }}" class="w3-bar-item w3-button w3-padding-16">Classroom</a>
     </div>
     
     </div>

@@ -5,7 +5,11 @@
         </div>       
 @endif 
 @section('content')
-
+<form action="{{ route('company.searchJob') }}" method="post"  id="search">
+                @csrf
+                <input type="text" name="searchJob" id="searchJob">
+                <button class="btn btn-info" type="submit" id="button">Search</button>
+            </form>
 <div class="container">
 	    <div class="row">
 		    <table class="table table-hover table-striped">
@@ -30,6 +34,7 @@
 		    </thead>
 		        <tbody>	
                 @foreach($jobs as $jobs)
+
 		            <tr>
                         <td><img src="{{ asset('img/') }}/{{$jobs->image}}" alt="" width="50"></td>
 		                <td>{{$jobs->id}}</td>

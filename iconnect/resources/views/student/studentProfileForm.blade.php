@@ -17,7 +17,7 @@
 
                 <div class="form-group input-group-lg">
                 <label for="name" class="text-info">Name:</label><br>
-                <input type="text" name="name" id="name" class="form-control">
+                <input type="text" name="name" id="name" class="form-control" required>
                 </div>
 
                 <div class="form-group input-group-lg">
@@ -30,39 +30,48 @@
 
                 <div class="form-group input-group-lg">
                 <label for="studentId" class="text-info">Student ID:</label><br>
-                <input type="text" name="studentId" id="studentId" class="form-control">
+                <input type="text" name="studentId" id="studentId" class="form-control"required>
                 </div>
 
                 <div class="form-group input-group-lg">
                 <label for="batchNo" class="text-info">Batch No:</label><br>
-                <input type="text" name="batchNo" id="batchNo" class="form-control">
+                <input type="text" name="batchNo" id="batchNo" class="form-control"required>
                 </div>
 
                 <div class="form-group input-group-lg">
                 <label for="email" class="text-info">Email:</label><br>
-                <input type="text" name="email" id="email" class="form-control">
+                <input type="text" name="email" id="email" class="form-control"required>
                 </div>
 
                 <div class="form-group input-group-lg">
                 <label for="contact" class="text-info">Contact:</label><br>
-                <input type="number" name="contact" id="contact" class="form-control">
+                <input type="tel" id="contact" name="contact" placeholder="xxx-xxxxxxx" pattern="[0-9]{2-3}-[0-9]{7-8}" required><br><br>
+
                 </div>
 
                 <div class="form-group input-group-lg">
                     <label for="profileImage" class="text-info">Photo: </label><br>
-                    <input type="file" class="form-control" name="profile-image" >
+                    <input type="file" class="form-control" name="profile-image" required>
                 </div>
 
                 <p style="text-align:center;"> Educational Background</p>
 
                 <div class="form-group input-group-lg">
                     <label for="university" class="text-info">University: </label><br>
-                    <input type="text" class="form-control" id="university" name="university">
+                    <input type="text" class="form-control" id="university" name="university"required>
                 </div>
 
                 <div class="form-group input-group-lg">
-                    <label for="fOStudy" class="text-info">Field of Study: </label><br>
-                    <input type="text" class="form-control" id="fOStudy" name="fOStudy" >
+                    <label for="fOStudy" class="text-info">Faculty: </label><br>
+                        <select id="fOStudy" name="fOStudy">
+                            <option value=""></option>
+                            <option id="fOStudy" name="fOStudy" value="Faculty of Business & Management">Faculty of Business & Management</option>
+                            <option id="fOStudy" name="fOStudy" value="Faculty of Engineering & Information Technology">Faculty of Engineering & Information Technology</option>
+                            <option id="fOStudy" name="fOStudy" value="Faculty of Humanities & Social Sciences">Faculty of Humanities & Social Sciences</option>
+                            <option id="fOStudy" name="fOStudy" value="Faculty of Arts & Design">Faculty of Arts & Design</option>
+                            <option id="fOStudy" name="fOStudy" value="Faculty of Chinese Medicine">Faculty of Chinese Medicine</option>
+                            <option id="fOStudy" name="fOStudy" value="Faculty of Education & Psychology">Faculty of Education & Psychology</option>
+                        </select>
                 </div>
 
                 <div class="form-group input-group-lg">
@@ -75,7 +84,7 @@
 
                 <div class="form-group input-group-lg">
                     <label for="gpa" class="text-info">GPA: </label><br>
-                    <input type="text" class="form-control" id="gpa" name="gpa">
+                    <input type="text" class="form-control" id="gpa" name="gpa"required>
                 </div>
 
                 <div class="form-group input-group-lg">
@@ -85,12 +94,12 @@
 
                 <div class="form-group input-group-lg">
                     <label for="resultImage" class="text-info">Result: </label><br>
-                    <input type="file" class="form-control" name="result-image" >
+                    <input type="file" class="form-control" name="result-image"required >
                 </div>
 
                 <div class="form-group input-group-lg">
                     <label for="image" class="text-info">Relevant Project: </label><br>
-                    <input type="file" class="form-control" name="project-image">
+                    <input type="file" class="form-control" name="project-image"required>
                 </div>
 
                 <div class="text-center">

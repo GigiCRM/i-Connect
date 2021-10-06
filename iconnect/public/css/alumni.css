@@ -1,0 +1,84 @@
+                    .row {
+                        margin-left: 250px;
+                        float: right;
+                        display: inline-flex;
+                    }
+                    
+                    .Header {
+                        font-weight: bold;
+                        font-size: 25px;
+                    }
+                    
+                    .body {
+                        width: 70%;
+                        margin: auto;
+                    }
+                    
+                    #card {
+                        padding-top: 20px;
+                        max-width: 300px;
+                        text-align: left;
+                        font-size: 15px;
+                        height: 550px;
+                        margin-bottom: 25px;
+                    }
+                    
+                    #card {
+                        border: 2px solid darkblue;
+                        background-color: rgba(129, 231, 231, 0.306);
+                    }
+                    
+                    #card div {
+                        padding-bottom: 10px;
+                        padding-left: 10px;
+                    }
+                    
+                    .title {
+                        font-size: 18px;
+                        text-decoration: underline;
+                        font-family: sans-serif;
+                        font-weight: bold;
+                        text-align: left;
+                        padding-left: 10px;
+                    }
+                    
+                    #none {
+                        display: none;
+                    }
+                    
+                    img {
+                        padding-left: 10px;
+                    }
+                    
+                    h2 {
+                        margin: auto;
+                    }
+                    
+                    #button {
+                        width: 70px;
+                        font-size: 13px;
+                    }
+                    
+                    #button :hover {
+                        background-color: darkblue;
+                        color: white;
+                    }
+                    
+                    .applyBtn a {
+                        text-decoration: none;
+                        display: inline-block;
+                        color: black;
+                    }
+                    
+                    .applyBtn button {
+                        float: right;
+                        margin-right: 10px;
+                        width: 70px;
+                        height: 30px;
+                        font-size: 13px;
+                        color: black;
+                    }
+                    
+                    #search {
+                        padding-left: 20px;
+                    }

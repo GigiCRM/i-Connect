@@ -21,7 +21,7 @@ class CreateProfileStudentsTable extends Migration
             $table->string('StudentID');
             $table->string('Batch_No');
             $table->string('Email');
-            $table->integer('Contact')->unsigned();
+            $table->string('Contact');
             $table->string('University');
             $table->string('FieldOfStudy');
             $table->string('Program');

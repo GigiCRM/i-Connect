@@ -102,9 +102,11 @@
                     <i class="fa fa-caret-down"></i>
                     </button>
                 <div class="dropdown-content">
-                    <a href="{{ route('showAppliedJob') }}">Apply List</a>
-                    <a href="#">Employee list</a>
-                    <a href="#">Employee Report</a>
+                    <a href="{{ route('company.showPendingJob') }}">Pending List</a>
+                    <a href="{{ route('company.showApprovedJob') }}">Approved List</a>
+                    <a href="{{ route('company.showDeclineJob') }}">Decline List</a>
+                    <a href="{{ route('showAppliedJob') }}">All Applied List</a>
+                    <a href="{{ route('company.showEmployeeList') }}">Employee list</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -113,11 +115,12 @@
                     </button>
                 <div class="dropdown-content">
                     <a href="{{ route('company.insertJob') }}">Insert Job</a>
-                    <a href="{{ route('company.showJob') }}">Job Listing</a>
+                    <a href="{{ route('company.showJob') }}">Job Record</a>
+                    <a href="{{ route('company.showValidJob') }}">Job Listing</a>
+
                 </div>
             </div>
                 <a href="{{ route('company.showCompanyList') }}">Company List</a> 
-                <a href="#news">Contact Us</a> 
             </div>
         
 

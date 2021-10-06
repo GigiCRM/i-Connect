@@ -31,6 +31,7 @@ class JobController extends Controller
 
         $addJob=Job::create([    //step 3 bind data
             'publisherId'=>$publisherId, //add on 
+            'companyName'=>$r->companyName, //add on 
             'jobName'=>$r->jobName, //fullname from HTML
             'position'=>$r->position,
             'salary'=>$r->salary,
@@ -50,9 +51,9 @@ class JobController extends Controller
     }
 
     public function showJob(){
-        $jobs=Job::paginate(12);
+        $job=Job::paginate(12);
         
-        return view('admin/showJob')->with('jobs',$jobs);
+        return view('admin/showJob')->with('job',$job);
     }
 
     public function edit($id){
@@ -71,6 +72,7 @@ class JobController extends Controller
             $jobs->image=$imageName;
             }        
         $jobs->publisherId=$r->publisherId;
+        $jobs->companyName=$r->companyName;
         $jobs->jobName=$r->jobName;
         $jobs->position=$r->position;
         $jobs->salary=$r->salary;

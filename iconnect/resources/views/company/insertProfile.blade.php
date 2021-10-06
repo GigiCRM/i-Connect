@@ -16,32 +16,49 @@
                 <p style="text-align:center;">Company Info</p>
 
                 <div class="form-group input-group-lg">
-                <label for="name" class="text-info">Name:</label><br>
+                <label for="name" class="text-dark">Company Name:</label><br>
                 <input type="text" name="name" id="name" class="form-control">
                 </div>
 
                 <div class="form-group input-group-lg">
-                <label for="type" class="text-info">Company Type:</label><br>
+                <label for="founder" class="text-dark">Founder:</label><br>
+                <input type="text" name="founder" id="founder" class="form-control">
+                </div>
+
+                <div class="form-group input-group-lg">
+                <label for="establish" class="text-dark">Establish in:</label><br>
+                <input type="text" name="establish" id="establish" class="form-control">
+                </div>
+
+                <div class="form-group input-group-lg">
+                <label for="type" class="text-dark">Company Type:</label><br>
                 <input type="text" name="type" id="type" class="form-control">
                 </div>
 
                 <div class="form-group input-group-lg">
-                <label for="address" class="text-info">Address</label><br>
+                <label for="address" class="text-dark">Address</label><br>
                 <input type="text" name="address" id="address" class="form-control">
                 </div>
 
                 <div class="form-group input-group-lg">
-                <label for="contact" class="text-info">Contact:</label><br>
+                <label for="contact" class="text-dark">Contact:</label><br>
                 <input type="number" name="contact" id="contact" class="form-control">
                 </div>
 
                 <div class="form-group input-group-lg">
-                <label for="ssm" class="text-info">SSM:</label><br>
+                <label for="ssm" class="text-dark">SSM:</label><br>
                 <input type="text" name="ssm" id="ssm" class="form-control">
                 </div>
 
                 <div class="form-group input-group-lg">
-                    <label for="image" class="text-info">Photo: </label><br>
+                <label for="URL" class="text-dark">Company URL:</label><br>
+                <input type="text" name="URL" id="URL" class="form-control">
+                <input type="radio" id="URL" name="URL" value="none">
+                    <label for="html">None</label><br>
+                </div>
+
+                <div class="form-group input-group-lg">
+                    <label for="image" class="text-dark">Photo: </label><br>
                     <input type="file" class="form-control" name="image" >
                 </div>
 

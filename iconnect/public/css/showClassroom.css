@@ -1,0 +1,126 @@
+.side-content {
+    margin-top: 80px;
+    padding-left: 20px;
+    height: 100%;
+}
+
+.side-content a {
+    text-decoration: none;
+    font-size: 1vw;
+    display: inline-flex;
+}
+
+.sidebar img {
+    padding-top: 30px;
+    width: 190px;
+    height: 250px;
+    display: block;
+    margin: auto;
+    border-width: 5px;
+    border-color: rgb(166, 168, 170);
+    max-width: 100%
+}
+
+.page-content div {
+    font-size: 15px;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.page-content h3 {
+    padding: 15px;
+    font-weight: bold;
+}
+
+.page-content img {
+    height: 250px;
+    width: 200px;
+    margin: auto;
+    border-width: 5px;
+    border-color: rgb(166, 168, 170);
+    max-width: 100%
+}
+
+.page-content button {
+    float: right;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#button {
+    width: 170px;
+    font-size: 1vw;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 10px;
+    float: right;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+
+#button:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+#info-background {
+    height: auto;
+}
+
+#center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    width: 60%;
+    border: 1px solid black;
+    font-weight: bold;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.info h3 {
+    font-size: 22px;
+    font-weight: bolder;
+    text-align: left;
+    opacity: 0.8;
+    margin-bottom: 25px;
+    text-decoration: underline;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.info div {
+    font-size: 18px;
+}
+
+em {
+    font-weight: bold;
+    text-decoration: none;
+    color: darkblue;
+    padding-right: 10px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+#space div {
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+#internForm-status {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    margin-left: 200px;
+    margin-bottom: 20px;
+}
+
+.page-content {
+    height: auto;
+}

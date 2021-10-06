@@ -14,7 +14,12 @@
             
             <div id="content">
                 <p style="text-align:center;">Job Posting</p>
-
+                
+                <div class="form-group input-group-lg">
+                <label for="companyName" class="text-info">Company Name:</label><br>
+                <input type="text" name="companyName" id="companyName" class="form-control">
+                </div>
+                
                 <div class="form-group input-group-lg">
                 <label for="jobName" class="text-info">Job:</label><br>
                 <input type="text" name="jobName" id="jobName" class="form-control">
@@ -31,7 +36,7 @@
                 </div>
 
                 <div class="form-group input-group-lg">
-                <label for="qualification" class="text-info">Qualification: </label><br>
+                <label for="qualification" class="text-info">Requirements: </label><br>
                 <input type="text" name="qualification" id="qualification" class="form-control">
                 </div>
 

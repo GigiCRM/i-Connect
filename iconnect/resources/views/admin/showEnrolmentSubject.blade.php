@@ -5,13 +5,21 @@
         </div>       
 @endif 
 @section('content')
-
 <div class="container">
-	    <div class="row">
+
+<div class="row" id="row-adjust" style="float:right; display:block; padding-bottom:10px;" >
+            <form action="{{ route('admin.searchSubject') }}" method="post"  id="search">
+                @csrf
+                <input type="text" name="searchJob" id="searchJob" style="height:30px; width:200px;">
+                <button class="btn btn-info" type="submit" id="button" style="height:30px; width:70px; font-size:14px;">Search</button>
+            </form>
+</div>
+
+	    <div class="row" style="display:block;">
 		    <table class="table table-hover table-striped">
 		        <thead>
 		        <tr class="thead-dark">
-		            <th>Creator Id</th>
+		            <th style="display:none;">Creator Id</th>
                     <th>Subject Name</th>
 		            <th>Subject Code</th>
                     <th>Lecturer id</th>
@@ -24,10 +32,10 @@
 		        </tr>
 		    </thead>
 		        <tbody>	
-                @foreach($enrolmentSubject as $enrolmentSubject)
+                @foreach($enrolmentSubjects as $enrolmentSubject)
 		            <tr>
                         
-		                <td>{{$enrolmentSubject->creatorId}}</td>
+		                <td style="display:none;">{{$enrolmentSubject->creatorId}}</td>
                         <td>{{$enrolmentSubject->subjectName}}</td>
                         <td>{{$enrolmentSubject->subjectCode}}</td>
                         <td>{{$enrolmentSubject->lecturerId}}</td>
@@ -46,7 +54,9 @@
 				
 		        </tbody>
 		    </table>
-
+            <div class="pagination">
+                {!! $enrolmentSubjects->links() !!}
+            </div>
 	</div>
     </div>
 

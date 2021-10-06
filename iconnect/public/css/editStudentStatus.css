@@ -1,0 +1,35 @@
+.content {
+    border: 1px solid black;
+    width: 80%;
+    background-color: rgba(255, 255, 240, 0.762);
+}
+
+.content div {
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+#content-item {
+    padding-top: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#id {
+    width: 100px;
+    border: none;
+    text-align: center;
+}
+
+#button:hover {
+    background-color: darkgreen;
+    color: white;
+}
+
+#none {
+    display: none;
+}
+
+#button {
+    background-color: darkgray;
+    color: black;
+}

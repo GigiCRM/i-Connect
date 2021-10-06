@@ -58,11 +58,11 @@
                 </div>
                 <div class="col-md-3">
                     <img src="{{ asset('img/full-time.jpg') }}" alt="Full-time" width="200px" height="250px">
-                    <div class="content"><a href=""> Full-time</a></div>
+                    <div class="content"><a href="{{ route('company.showFullTime') }}"> Full-time</a></div>
                 </div>
                 <div class="col-md-3">
                     <img src="{{ asset('img/part-time.jpg') }}" alt="Part-time" width="200px" height="250px">
-                    <div class="content"><a href="">Part-time</a> </div>
+                    <div class="content"><a href="{{ route('company.showPartTime') }}">Part-time</a> </div>
                 </div>
                 <div class="col-md-3">
                     <img src="{{ asset('img/suc.jpg') }}" alt="SUC" width="200px" height="250px">

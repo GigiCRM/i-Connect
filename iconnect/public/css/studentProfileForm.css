@@ -1,54 +1,123 @@
-.form-group {
-    font-size: 18px;
-    color: black;
-}
-
-p {
-    font-size: 30px;
-    font-weight: bold;
-}
-
-input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-}
-
-input[type=number] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-}
-
-input[type=file] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-}
-
-input[type=submit] {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-    font-size: 0.8vw;
-    text-align: center;
-}
-
-form {
-    border: 1px solid black;
-}
-
-#content {
-    padding: 15px;
-}
-
-#button:hover {
-    background-color: darkgreen;
-}
+        .form-group {
+            font-size: 18px;
+            color: black;
+        }
+        
+        p {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        
+        input[type=number] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        
+        input[type=file] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-size: 0.8vw;
+            text-align: center;
+        }
+        
+        form {
+            border: 1px solid black;
+            margin-top: 20px;
+        }
+        
+        #content {
+            padding: 15px;
+        }
+        
+        #button:hover {
+            background-color: darkgreen;
+        }
+        
+        #report {
+            font-size: 15px;
+        }
+        
+        #report:hover {
+            background-color: Green;
+            color: white;
+        }
+        
+        #record-btn {
+            width: 200px;
+            font-size: 15px;
+            margin-bottom: 15px;
+            border: 1px solid black;
+            float: right;
+            display: block;
+            font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        #record-btn:hover {
+            background-color: darkblue;
+            color: white;
+        }
+        
+        #report-body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        #report-content {
+            background-color: rgba(253, 253, 241, 0.666);
+            border: 1px solid black;
+            width: 70%;
+            margin-top: 40px;
+            padding: 30px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        #report-content-box {
+            display: block;
+            padding: 15px;
+            line-height: 30px;
+        }
+        
+        #report-edit-btn {
+            display: block;
+            font-size: 18px;
+            float: right;
+            width: 120px;
+            margin-bottom: 20px;
+            border: 1px solid black;
+        }
+        
+        #report-week {
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: underline;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        #report-edit-btn:hover {
+            background-color: darkblue;
+            color: white;
+        }

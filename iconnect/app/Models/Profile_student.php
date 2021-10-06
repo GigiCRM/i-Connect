@@ -35,6 +35,10 @@ class Profile_student extends Model
         return $this->hasOne('App\Job');
     }
 
+    public function internDetail(){
+        return $this->belongsTo('App\InternDetail');
+    }
+
 
 
 }

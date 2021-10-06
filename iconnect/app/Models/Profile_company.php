@@ -12,11 +12,15 @@ class Profile_company extends Model
     protected $fillable = [
        'companyId',
        'name',
+       'founder',
        'type',
        'address',
        'image',
        'contact',
-       'ssm'
+       'ssm',
+       'establish',
+       'URL'
+       
     ];
 
     public function company(){

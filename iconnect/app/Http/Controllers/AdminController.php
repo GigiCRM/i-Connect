@@ -10,6 +10,7 @@ use App\Models\Profile_student;
 use App\Models\InternStatus; 
 use App\Models\Enrolment_subject; 
 use App\Models\Profile_company;
+use App\Models\AppliedJob; 
 Use Auth;
 Use Session;
 
@@ -28,6 +29,7 @@ class AdminController extends Controller
 
         $addJob=Job::create([    //step 3 bind data
             'publisherId'=>$r->publisherId, //add on 
+            'companyName'=>$r->companyName, //add on 
             'jobName'=>$r->jobName, //fullname from HTML
             'position'=>$r->position,
             'salary'=>$r->salary,
@@ -43,7 +45,7 @@ class AdminController extends Controller
         ]);
         Session::flash('success',"Job insert succesful!");
 
-        return redirect()->route('admin.home');
+        return redirect()->route('showJob');
     }
 
     public function showJob(){
@@ -62,13 +64,23 @@ class AdminController extends Controller
          return redirect()->route('showJob')->with('jobs',$jobs);
     }
 
+    public function decline($id){
+        $jobs =Job::all()->where('id',$id);
+        $r=request();
+        $jobs = Job::find($r->id);
+        $jobs->status ="Invalid";
+        $jobs->save();
+
+         return redirect()->route('showJob')->with('jobs',$jobs);
+    }
+
     public function studentList(){
 
-        $students=DB::table('profile_students')
+        $student=DB::table('profile_students')
         ->select('profile_students.*')
-        ->get();
+        ->paginate(10);
 
-        return view('admin/studentList')->with('students',$students);
+        return view('admin/studentList')->with('student',$student);
     }
 
     public function studentProfile($id){
@@ -80,12 +92,12 @@ class AdminController extends Controller
 
     public function showInternStatus(){
         
-        $internStatus=DB::table('intern_statuses')
+        $internStatuss=DB::table('intern_statuses')
         ->leftJoin('profile_students','profile_students.Email','=','intern_statuses.email')
-        ->select('profile_students.Name as studentName','profile_students.StudentID as studentID','profile_students.Email as studentEmail','intern_statuses.*')
-        ->get();
-
-        return view('admin/showStudentStatus')->with('internStatus',$internStatus);
+        ->select('profile_students.FieldOfStudy as FieldOfStudy','profile_students.Program as Program','profile_students.Name as studentName','profile_students.StudentID as studentID','profile_students.Email as studentEmail','intern_statuses.*')
+        ->paginate(10);
+        
+        return view('admin/showStudentStatus')->with('internStatuss',$internStatuss);
     }
 
     public function insertEnrolmentSubject()
@@ -114,9 +126,9 @@ class AdminController extends Controller
     }
 
     public function showEnrolmentSubject(){
-        $enrolmentSubject=Enrolment_subject::paginate(12);
+        $enrolmentSubjects=Enrolment_subject::paginate(8);
         
-        return view('admin/showEnrolmentSubject')->with('enrolmentSubject',$enrolmentSubject);
+        return view('admin/showEnrolmentSubject')->with('enrolmentSubjects',$enrolmentSubjects);
     }
 
     public function editEnrolmentSubject($id){
@@ -149,9 +161,9 @@ class AdminController extends Controller
     }
 
     public function showCompanyList(){
-        $company=Profile_company::paginate(12);
+        $companies=Profile_company::paginate(6);
         
-        return view('admin/showCompanyList')->with('company',$company);
+        return view('admin/showCompanyList')->with('companies',$companies);
     }
 
     public function editCompanyProfile($id){
@@ -183,7 +195,156 @@ class AdminController extends Controller
         $profile=Profile_company::find($id);
         $profile->delete();
         return redirect()->route('admin.showCompanyProfile');
+
+        Session::flash('success',"Approved!");
+
     }
+
+    public function searchStudent(){
+        $r=request();//retrive submited form data
+        $keyword=$r->searchJob;
+        $student=DB::table('profile_students')
+        ->where('profile_students.Name', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_students.Program', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_students.StudentID', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_students.Batch_No', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_students.Email', 'like', '%' . $keyword . '%')
+        ->paginate(6);
+
+      
+        return view('admin/studentList')->with('student',$student);
+    }
+
+    public function searchInternStatus(){
+        $r=request();//retrive submited form data
+        $keyword=$r->searchJob;
+        $internStatuss=DB::table('intern_statuses')
+        ->leftJoin('profile_students','profile_students.Email','=','intern_statuses.email')
+        ->select('profile_students.FieldOfStudy as FieldOfStudy','profile_students.Program as Program','profile_students.Name as studentName','profile_students.StudentID as studentID','profile_students.Email as studentEmail','intern_statuses.*')
+        ->where('profile_students.Name', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_students.Program', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_students.StudentID', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_students.Email', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_students.FieldOfStudy', 'like', '%' . $keyword . '%')
+        ->paginate(6);
+
+      
+        return view('admin/showStudentStatus')->with('internStatuss',$internStatuss);
+    }
+
+    public function showAlumniList(){
+
+        $student=DB::table('profile_students')
+        ->leftJoin('users','users.id','=','profile_students.StudentNo')
+        ->select('profile_students.*')
+        ->where('users.is_alumni','=',1)
+        ->paginate(10);
+        
+        return view('admin/showAlumniList')->with('student',$student);
+    }
+
+    public function searchAlumni(){
+        $r=request();//retrive submited form data
+        $keyword=$r->searchJob;
+        $student=DB::table('profile_students')
+        ->where('profile_students.Name', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_students.Program', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_students.StudentID', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_students.Batch_No', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_students.Email', 'like', '%' . $keyword . '%')
+        ->paginate(6);
+
+         
+        return view('admin/showAlumniList')->with('student',$student);
+    }
+
+    public function searchSubject(){
+        $r=request();//retrive submited form data
+        $keyword=$r->searchJob;
+        $enrolmentSubjects=DB::table('enrolment_subjects')
+        ->where('enrolment_subjects.subjectName', 'like', '%' . $keyword . '%')
+        ->orWhere('enrolment_subjects.subjectCode', 'like', '%' . $keyword . '%')
+        ->orWhere('enrolment_subjects.lecturerEmail', 'like', '%' . $keyword . '%')
+        ->orWhere('enrolment_subjects.Faculty', 'like', '%' . $keyword . '%')
+        ->orWhere('enrolment_subjects.lecturerId', 'like', '%' . $keyword . '%')
+        ->paginate(10);
+        
+        return view('admin/showEnrolmentSubject')->with('enrolmentSubjects',$enrolmentSubjects);
+    }
+
+    public function showInvalidJob(){
+        $job=Job::paginate(12);
+
+        $job=DB::table('jobs')
+        ->select('jobs.*')
+        ->where('jobs.status','=',"Invalid")
+        ->paginate(10);
+        
+        return view('admin/showJob')->with('job',$job);
+    }
+
+    public function showValidJob(){
+        $job=Job::paginate(12);
+
+        $job=DB::table('jobs')
+        ->select('jobs.*')
+        ->where('jobs.status','=',"Valid")
+        ->paginate(10);
+        
+        return view('admin/showJob')->with('job',$job);
+    }
+
+    public function searchJob(){
+       
+        $r=request();//retrive submited form data
+        $keyword=$r->searchJob;
+
+        $job=DB::table('jobs')
+        ->select('jobs.*')
+        ->where('jobs.jobName', 'like', '%' . $keyword . '%')
+        ->orWhere('jobs.position', 'like', '%' . $keyword . '%')
+        ->orWhere('jobs.typeOfJob', 'like', '%' . $keyword . '%')
+        ->orWhere('jobs.employeeType', 'like', '%' . $keyword . '%')
+        ->where('jobs.status','=','Valid')
+        ->paginate(10);
+ 
+        return view('admin/showJob')->with('job',$job);
+    }
+
+    public function searchCompany(){
+        $r=request();//retrive submited form data
+        $keyword=$r->searchJob;
+        $companies=DB::table('profile_companies')
+        ->where('profile_companies.name', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_companies.type', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_companies.address', 'like', '%' . $keyword . '%')
+        ->orWhere('profile_companies.ssm', 'like', '%' . $keyword . '%')
+        ->paginate(6);
+
+      
+        return view('admin/showCompanyList')->with('companies',$companies);
+    }
+
+    public function showFullTime(){
+        $job=DB::table('jobs')
+        ->select('jobs.*')
+        ->where('jobs.status','=','Valid')
+        ->where('jobs.typeOfJob','=',"Full-time")
+        ->paginate(10);
+        
+        return view('admin/showJob')->with('job',$job);
+    }
+
+    public function showPartTime(){
+        $job=DB::table('jobs')
+        ->select('jobs.*')
+        ->where('jobs.status','=','Valid')
+        ->where('jobs.typeOfJob','=',"Part-time")
+        ->paginate(10);
+        
+        return view('admin/showJob')->with('job',$job);
+    }
+
  
 
 }

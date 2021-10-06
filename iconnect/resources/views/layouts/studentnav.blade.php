@@ -87,14 +87,39 @@
      <!-- Navbar -->
      <div class="navbar">
                 <a href="{{ route('student.home') }}">Home</a>
-                <a href="{{ route('showStudentProfile') }}">Student</a>
-                <a href="{{ route('viewJob') }}">Job Gallery</a> 
-                <a href="#home">Internship</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Student
+                    </button>
+                    
+                    <div class="dropdown-content">
+                        <a href="{{ route('insert.Profile') }}">Profile setup</a>
+                        <a href="{{ route('showStudentProfile') }}">Profile</a>
+                    </div>
+                </div> 
+                <div class="dropdown">
+                    <button class="dropbtn">Job Gallery 
+                    </button>
+                    
+                    <div class="dropdown-content">
+                        <a href="{{ route('viewJob') }}">Job List</a>
+                        <a href="{{ route('student.showAppliedJob') }}">Applied Job</a>
+                        <a href="{{ route('student.showApprovedJob') }}">Approved Job</a>
+                    </div>
+                </div> 
+                <div class="dropdown">
+                    <button class="dropbtn">Internship 
+                    <i class="fa fa-caret-down"></i>
+                    </button>
+                    
+                    <div class="dropdown-content">
+                        <a href="{{ route('student.showSubject') }}">Subject Enrolment</a>
+                    </div>
+                </div> 
                 <a href="{{ route('student.showCompanyList') }}">Company List</a> 
-                <a href="#news">Contact Us</a> 
+                <a href="{{ route('showStudentMessage') }}" style="display:none;">Messages</a> 
     </div>
 
-        <main class="py-4" style="display:inline;">
+        <main class="py-4">
             @yield('content')
         </main>
     
